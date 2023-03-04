@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-
+//複数代入の脆弱性にデフォルトで対策?
 class Owner extends Authenticatable
 {
     use HasFactory;
@@ -20,6 +20,16 @@ class Owner extends Authenticatable
         'name',
         'email',
         'password',
+        'owner_user_id',
+        'owner_tel',
+        'owner_age',
+        'owner_birth',
+        'owner_sex',
+        'owner_area',
+        'owner_address',
+        'owner_job',
+        'owner_photo_main',
+        'owner_photo_id',
     ];
 
     /**
@@ -40,5 +50,4 @@ class Owner extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-
 }

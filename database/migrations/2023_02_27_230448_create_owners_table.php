@@ -21,6 +21,16 @@ return new class extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
+            $table->string('owner_user_id')->nullable();//追加・本当はNULLじゃない方がいい↓
+            $table->string('owner_tel')->nullable(); //追加
+            $table->integer('owner_age')->nullable(); //追加
+            $table->string('owner_birth')->nullable(); //追加
+            $table->string('owner_sex')->nullable(); //追加
+            $table->string('owner_area')->nullable(); //追加
+            $table->string('owner_address')->nullable(); //追加
+            $table->string('owner_job')->nullable(); //追加
+            $table->string('owner_photo_main')->nullable();//追加
+            $table->string('owner_photo_id')->nullable();//追加
         });
     }
 
