@@ -1,5 +1,5 @@
 <x-guest-layout>
-    ログイン用
+    仲人ログイン用
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
@@ -8,14 +8,14 @@
 
         <!-- Email Address -->
         <div>
-            <x-input-label for="email" :value="__('Email')" />
+            <x-input-label for="email" :value="__('メールアドレス')" />
             <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
 
-        <!-- Password -->
+        <!-- パスワード -->
         <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
+            <x-input-label for="password" :value="__('パスワード')" />
 
             <x-text-input id="password" class="block mt-1 w-full"
                             type="password"
@@ -36,17 +36,18 @@
         <div class="flex items-center justify-end mt-4">
             @if (Route::has('owner.password.request'))
                 <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('owner.password.request') }}">
-                    {{ __('Forgot your password?') }}
+                    {{ __('パスワードを忘れた方はこちら') }}
                 </a>
             @endif
 
             <x-primary-button class="ml-3">
-                {{ __('Log in') }}
+                {{ __('ログイン') }}
             </x-primary-button>
         </div>
     </form>
 
 
+    <!-- 新規登録用 -->
     <form method="POST" action="{{ route('owner.register') }}">
         @csrf
 

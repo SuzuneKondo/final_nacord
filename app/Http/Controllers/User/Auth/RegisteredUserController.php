@@ -43,16 +43,16 @@ class RegisteredUserController extends Controller
             'user_address' => ['required', 'string'],
             'user_job' => ['required', 'string'],
             'friend' => ['required', 'string'],
-            'character_p' => ['required', 'text'],
-            'character_m' => ['required', 'text'],
-            'lt_short' => ['required', 'text'],
-            'lt' => ['required', 'text'],
-            'hobby' => ['required', 'text'],
+            // 'character_p' => ['required', 'text'],
+            // 'character_m' => ['required', 'text'],
+            // 'lt_short' => ['required', 'text'],
+            // 'lt' => ['required', 'text'],
+            // 'hobby' => ['required', 'text'],//バリデーションにtextは存在していない（設定次第？
             'meeting' => ['required', 'string'],
             'user_photo_main' => ['required', 'string'],
             'user_photo_sub' => ['required', 'string'],
             'user_photo_id' => ['required', 'string'],
-            'status' => ['required', 'string'],
+            // 'status' => ['required', 'string'],//このバリデーションに入力すると、項目を入力しない限り登録できない→ここに入力しなければ必須事項にならない（裏のみにできる）≠NULL設定
         ]);
 
         $user = User::create([
@@ -68,16 +68,16 @@ class RegisteredUserController extends Controller
             'user_address' => $request->user_address,
             'user_job' => $request->user_job,
             'friend' => $request->friend,
-            'character_p' => $request->character_p,
-            'character_m' => $request->character_m,
-            'lt_short' => $request->lt_short,
-            'lt' => $request->lt,
-            'hobby' => $request->hobby,
+            // 'character_p' => $request->character_p,
+            // 'character_m' => $request->character_m,
+            // 'lt_short' => $request->lt_short,
+            // 'lt' => $request->lt,
+            // 'hobby' => $request->hobby,
             'meeting' => $request->meeting,
             'user_photo_main' => $request->user_photo_main,
             'user_photo_sub' => $request->user_photo_sub,
             'user_photo_id' => $request->user_photo_id,
-            'status' => $request->status,
+            // 'status' => $request->status,
         ]);
 
         event(new Registered($user));
