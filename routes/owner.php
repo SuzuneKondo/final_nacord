@@ -11,8 +11,9 @@ use App\Http\Controllers\Owner\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Owner\Auth\RegisteredUserController;
 use App\Http\Controllers\Owner\Auth\VerifyEmailController;
 use Illuminate\Support\Facades\Route;
-// use App\Http\Controllers\OwnerController; //追加
-// use App\Models\Owner; //追加
+use App\Http\Controllers\Owner\Auth\UserListController; //追加
+use App\Http\Controllers\Owner\Auth\OwnerController; //追加
+use App\Models\Owner; //追加
 
 /*
 |--------------------------------------------------------------------------
@@ -33,22 +34,30 @@ Route::get('/dashboard', function () {
     return view('owner.dashboard');
 })->middleware(['auth:owners', 'verified'])->name('dashboard');
 
-// //owner：ダッシュボード表示(owner.blade.phpまだない)
-// Route::get('/', [OwnerController::class,'index'])->middleware(['auth'])->name('book_index');
-// Route::get('/dashboard', [OwnerController::class,'index'])->middleware(['auth'])->name('dashboard');
+Route::get('/users-list', function () {
+    return view('owner.users-list');
+})->middleware(['auth:owners', 'verified'])->name('users-list');
+
+Route::get('/users-detail', function () {
+    return view('owner.users-detail');
+})->middleware(['auth:owners', 'verified'])->name('users-detail');
+
+// //owner：ダッシュボード表示(owner.blade.php)
+// Route::get('/', [OwnerController::class,'index'])->middleware(['auth:owners'])->name('owner_index');
+// Route::get('/dashboard', [OwnerController::class,'index'])->middleware(['auth:owners'])->name('dashboard');
 
 // //owner：追加 
-// Route::post('/books',[OwnerController::class,"store"])->name('book_store');
+// Route::post('/owners',[OwnerController::class,"store"])->name('owner_store');
 
 // //owner：削除 
-// Route::delete('/book/{book}', [OwnerController::class,"destroy"])->name('book_destroy');
+// Route::delete('/owner/{owner}', [OwnerController::class,"destroy"])->name('owner_destroy');
 
 // //owner：更新画面
-// Route::post('/booksedit/{book}',[OwnerController::class,"edit"])->name('book_edit'); //通常
-// Route::get('/booksedit/{book}', [OwnerController::class,"edit"])->name('edit');      //Validationエラーありの場合
+// Route::post('/ownersedit/{owner}',[OwnerController::class,"edit"])->name('owner_edit'); //通常
+// Route::get('/ownersedit/{owner}', [OwnerController::class,"edit"])->name('edit');      //Validationエラーありの場合
 
 // //owner：更新画面
-// Route::post('/books/update',[OwnerController::class,"update"])->name('book_update');
+// Route::post('/owners/update',[OwnerController::class,"update"])->name('owner_update');
 
 
 Route::middleware('auth')->group(function () {

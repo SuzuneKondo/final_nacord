@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Owner\Auth;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
-class OwnerController extends Controller
+class UsersListController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +14,7 @@ class OwnerController extends Controller
      */
     public function index()
     {
-        return view('owner'); //追記
+        return view('owner.users-list'); //追記
     }
 
     /**
